@@ -1,4 +1,4 @@
 # chatRoomProject
 first softweare project
-ido homo
+iniv homo
 first try to edit and commit brance
