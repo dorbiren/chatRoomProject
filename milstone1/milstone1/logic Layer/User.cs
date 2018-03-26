@@ -11,10 +11,13 @@ namespace milstone1.logic_Layer
     {
         private String nickName;
         private int group_id;
-        
-        public void sendmessege (string body)
+
+        public void sendmessege(string body)
         {
-           IMessage msg =  Communication.Instance.Send(url, this.group_id, this.nickName, body);
+            IMessage msg = Communication.Instance.Send(url, this.group_id, this.nickName, body);
+        }
+        public void logout()
+        {
         }
 
 

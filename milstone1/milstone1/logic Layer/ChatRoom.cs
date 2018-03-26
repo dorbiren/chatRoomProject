@@ -29,21 +29,21 @@ namespace milstone1.logic_Layer
         }
         private void stateAnalyze()
         {
-            switch(state)
+            switch (state)
             {
                 case 0: gui.Menu(); break;
                 case 1: gui.Register(); break;
                 case 2: gui.Login(); break;
                 default: break;
             }
-            
+
         }
         public void handler(String input)
         {
             switch (state)
             {
                 case 0:
-                    switch(input)
+                    switch (input)
                     {
                         case "1": state = 1; stateAnalyze(); break;
                         case "2": state = 2; stateAnalyze(); break;
@@ -72,11 +72,22 @@ namespace milstone1.logic_Layer
 
 
         }
-
-        public void sendmessege (string body)
+        public void login(String nickName, string group_id)
         {
-            loggedInUser.sendmessege(body);
+
         }
+        public void retriveMessages (int number);
+        {
+
+        }
+        public string displayAll()
+         {
+
+         }
+        public void sendmessege (string body) {
+          
+            loggedInUser.sendmessege(body);
+        
 
     }
 }

@@ -8,5 +8,18 @@ namespace milstone1.logic_Layer
 {
     class Message
     {
+        private string body;
+        private User user;
+
+
+
+        private Boolean checkValidity (string body)
+        {
+
+        }
+        public void editBody (string newBody)
+        {
+
+        }
     }
 }
