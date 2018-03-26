@@ -29,6 +29,10 @@ namespace milstone1.presentaionLayer
             DeletScreen();
             Console.WriteLine("Register");
             Console.WriteLine("insert nick name");
+            String nickName = Console.ReadLine();
+            Console.WriteLine("insert group_id");
+            String group_id = Console.ReadLine();
+            chatroom.registration(nickName, group_id);
             Console.WriteLine("1 back to manue");
             Console.WriteLine("2 exit");
             chatroom.handler(Console.ReadLine());

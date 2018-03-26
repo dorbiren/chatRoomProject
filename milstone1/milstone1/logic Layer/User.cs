@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using milstone1.CommunicationLayer;
 
 namespace milstone1.logic_Layer
 {
@@ -10,7 +11,12 @@ namespace milstone1.logic_Layer
     {
         private String nickName;
         private int group_id;
-        private int password;
-        private int countery;
+        
+        public void sendmessege (string body)
+        {
+           IMessage msg =  Communication.Instance.Send(url, this.group_id, this.nickName, body);
+        }
+
+
     }
 }

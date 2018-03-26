@@ -10,6 +10,7 @@ namespace milstone1.logic_Layer
     public class ChatRoom
     {
         private User loggedInUser;
+        private List<User> userList;
         private string url;
         private int state;
         //state =0 Manue, 
@@ -17,6 +18,7 @@ namespace milstone1.logic_Layer
         private Gui gui;
         public ChatRoom()
         {
+
             gui = new Gui(this);
         }
         public void start()
@@ -29,7 +31,7 @@ namespace milstone1.logic_Layer
         {
             switch(state)
             {
-                case 0: gui.Manue(); break;
+                case 0: gui.Menu(); break;
                 case 1: gui.Register(); break;
                 case 2: gui.Login(); break;
                 default: break;
@@ -66,7 +68,15 @@ namespace milstone1.logic_Layer
                     break;
             }
         }
-        public void registration(string nickName, int group_id, int password, string countery);
+        public void registration(string nickName, string group_id) {
+
+
+        }
+
+        public void sendmessege (string body)
+        {
+            loggedInUser.sendmessege(body);
+        }
 
     }
 }
