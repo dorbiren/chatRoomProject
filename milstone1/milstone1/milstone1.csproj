@@ -47,6 +47,7 @@
     <Compile Include="logic Layer\ChatRoom.cs" />
     <Compile Include="logic Layer\Message.cs" />
     <Compile Include="logic Layer\User.cs" />
+    <Compile Include="persistentLayer\FilesHandler.cs" />
     <Compile Include="presentaionLayer\Gui.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,8 +55,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="persistentLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

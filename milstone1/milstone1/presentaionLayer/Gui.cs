@@ -14,41 +14,90 @@ namespace milstone1.presentaionLayer
         {
             this.chatroom = chatroom;
         }
-        public void Menu()
+        public void MainMenu()
         {
            DeletScreen(); 
            Console.WriteLine("WELCOME TO CHATRoom");
            Console.WriteLine("1 register");
            Console.WriteLine("2 login");
            Console.WriteLine("3 exit");
-            Console.WriteLine("insert a value");
-            chatroom.handler(Console.ReadLine());
+           Console.WriteLine("insert a value");
+           string answer = Console.ReadLine();
+            int ans = int.Parse(answer);
+            switch (ans)
+            {
+                case 1:
+                    Register();
+                    break;
+                case 2:
+                    Login();
+                    break;
+                case 3:
+                    Exit();
+                    break;
+            }
          }
         public void Register()
         {
             DeletScreen();
             Console.WriteLine("Register");
             Console.WriteLine("insert nick name");
-            String nickName = Console.ReadLine();
+            string nickName = Console.ReadLine();
             Console.WriteLine("insert group_id");
-            String group_id = Console.ReadLine();
-            chatroom.registration(nickName, group_id);
-            Console.WriteLine("1 back to manue");
-            Console.WriteLine("2 exit");
-            chatroom.handler(Console.ReadLine());
+            string group_id = Console.ReadLine();
+            try
+            {
+                chatroom.registration(nickName, group_id);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            //Console.WriteLine("1 back to manue");
+            //Console.WriteLine("2 exit");
+            chatroom.registration(nickName, g_id);
         }
         public void Login()
         {
             DeletScreen();
             Console.WriteLine("Login");
             Console.WriteLine("1 back to manue");
-            Console.WriteLine("2 exit");
+            Console.WriteLine("2 send message");
             chatroom.handler(Console.ReadLine());
         }
+
+        private void sendMessage()
+        {
+            DeletScreen();
+            Console.WriteLine("Write new message");
+            string message = Console.ReadLine();
+            chatroom.sendMessage(message);
+        }
+
         public void chat()
         {
+            DeletScreen();
+            Console.WriteLine("Welcome back!");
+            Console.WriteLine("1 send message");
+            Console.WriteLine("2 retrieve 10 messages");
+            Console.WriteLine("3 display 20 messages");
+            Console.WriteLine("4 back to main menu");
 
+            string answer = Console.ReadLine();
+            int ans = int.Parse(answer);
+            switch (ans)
+            {
+                case 1:
+                    sendMessage();
+                    break;
+                case 2:
+                    RetrieveMessage();
+                    break;
+                case 3:
+                    MainMenu();
+                    break;
+            }
         }
+
         public void Error(String error)
         {
             delettnumberlastlines(2);
