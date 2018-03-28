@@ -95,7 +95,7 @@ namespace milstone1.presentaionLayer
                     sendMessage();
                     break;
                 case 2:
-                    RetrieveMessage();
+                    chatroom.retriveMessages(10);
                     break;
                 case 3:
                     MainMenu();

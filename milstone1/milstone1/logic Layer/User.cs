@@ -9,15 +9,14 @@ namespace milstone1.logic_Layer
 {
     public class User 
     {
-        private string NickName { get; }
-        private string Group_Id { get; }
+        public string NickName { get; }
+        public string Group_Id { get; }
 
         private User(string nickname, string group_id)
         {
             this.Group_Id = group_id;
             this.NickName = nickname;
         }
-
         private static bool isValid(string nickname, string group_id)
         {
             return true;

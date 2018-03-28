@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using milstone1.CommunicationLayer;
 using milstone1.presentaionLayer;
-// אמא של דור
+using milstone1.persistentLayer;
+
 namespace milstone1.logic_Layer
 {
     public class ChatRoom
@@ -14,30 +15,29 @@ namespace milstone1.logic_Layer
         private List<User> userList;
         private List<IMessage> messagesList;
         private string url;
-    
+        
 
         public ChatRoom()
-        { 
-           
+        {
+            this.messagesList=FilesHandler.readMessagesFromFile();
+            this.userList = FilesHandler.readUsersFromFile();
         }
 
        
         private bool userExists(User user)
         {
-            if (/* check is user is not in the list */)
-            {
-                return true;
+            foreach(User u in this.userList){
+                if (u.Equals(user))
+                    return true;
             }
-            else
-            {
                 throw new Exception("user already exists");
             }
-        }
 
         internal void sendMessage(string message)
         {
             IMessage msg = loggedInUser.sendmessege(message,url);
             messagesList.Add(msg);
+
         }
 
         public void registration(string nickName, string group_id) {
@@ -51,27 +51,51 @@ namespace milstone1.logic_Layer
 
         public void login(String nickName, string group_id)
         {
-            User user = null /*get from list*/;
-            if (user == null)
+            foreach (User u in this.userList)
             {
-                throw new Exception("no such usser");
-            } else
-            {
-                loggedInUser = user;
-                user.login();
+                if (u.NickName.Equals(nickName) && u.Group_Id.Equals(group_id))
+                {
+                    loggedInUser = u;
+                    u.login();
+                    return;
+                }
             }
+                {
+                throw new Exception("no such user");
         }
 
-        public void retriveMessages (int number)
+         public void retriveMessages (int number)
         {
-            IList<IMessage> mesagges = Communication.Instance.GetTenMessages(this.url);
+            IList<IMessage> messages = Communication.Instance.GetTenMessages(this.url);
             messagesList.AddRange(messages);
-        }
-
-        public string displayMessages(int number)
-        {
+            FilesHandler.SaveMessages(messages);
             
         }
 
+        public List<IMessage> displayMessages(int number)
+        {
+                List<IMessage> msg = new List<IMessage>();
+                if (messagesList.Count >= number)
+                {
+                    for (int i = 0; i < number; i++)
+                    {
+                        msg.Insert(i, messagesList[i]);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < messagesList.Count; i++)
+                    {
+                        msg.Insert(i, messagesList[i]);
+                    }
+                }
+                return msg;
+        }
+           
+            public void logOut()
+            {
+
+            }
+        
         
 }

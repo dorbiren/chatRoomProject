@@ -11,22 +11,27 @@ namespace milstone1.persistentLayer
     public class FilesHandler
     {
         
-        public void SaveMessages(IList<IMessage> messages)
+        public static void SaveMessages(List<IMessage> messages)
         {
 
         }
 
-        public void SaveUsers(IList<User> users)
+        public static void SaveUsers(List<User> users)
         {
 
         }
 
-        public IList<IMessage> readMessagesFromFile()
+        public static List<IMessage> readMessagesFromFile()
         {
             throw new NotImplementedException();
         }
 
-        public IList<User> readUsersFromFile()
+        public static List<User> readUsersFromFile()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void SaveMessages(IList<IMessage> messages)
         {
             throw new NotImplementedException();
         }
