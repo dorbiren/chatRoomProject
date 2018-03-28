@@ -14,6 +14,11 @@ namespace milstone1.presentaionLayer
         {
             this.chatroom = chatroom;
         }
+        public void start()
+        {
+            this.MainMenu();
+        }
+
         public void MainMenu()
         {
            DeletScreen(); 

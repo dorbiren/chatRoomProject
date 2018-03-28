@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using milstone1.presentaionLayer;
 using milstone1.logic_Layer;
 
 namespace milstone1
@@ -11,7 +12,8 @@ namespace milstone1
     {
         static void Main(string[] args)
         {
-            ChatRoom a = new ChatRoom();
+            ChatRoom c = new ChatRoom();
+            Gui a = new Gui(c);
             a.start();
         }
     }

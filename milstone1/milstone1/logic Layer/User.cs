@@ -7,10 +7,10 @@ using milstone1.CommunicationLayer;
 
 namespace milstone1.logic_Layer
 {
-    public class User
+    public class User 
     {
-        public string NickName { get; }
-        public string Group_Id { get; }
+        private string NickName { get; }
+        private string Group_Id { get; }
 
         private User(string nickname, string group_id)
         {
