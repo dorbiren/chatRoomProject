@@ -9,8 +9,8 @@ namespace milstone1.logic_Layer
 {
     public class User 
     {
-        private string NickName { get; }
-        private string Group_Id { get; }
+        private string NickName 
+        private string Group_Id;
 
         private User(string nickname, string group_id)
         {
@@ -18,9 +18,15 @@ namespace milstone1.logic_Layer
             this.NickName = nickname;
         }
 
+        public String getNickname(){
+         return this.NickName;
+}                                  
+        public String GetGroup_Id(){
+         return this.Group_Id;
+}            
         private static bool isValid(string nickname, string group_id)
         {
-            return true;
+            return ;
         }
 
         public static User create(string nickname, string group_id)
@@ -41,13 +47,17 @@ namespace milstone1.logic_Layer
 
         public void login()
         {
-
+        
         }
 
         public void logout()
         {
         }
 
+        public boll isEqual(User user){
+            if( (this.NickName==user.NickName) && (this.Group_Id==user.Group_Id) ){ return true;}
 
-    }//test number 2
+}
+
+    }
 }

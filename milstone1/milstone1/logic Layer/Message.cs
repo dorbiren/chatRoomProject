@@ -34,11 +34,11 @@ namespace milstone1.logic_Layer
 
         private Boolean checkValidity (string body)
         {
-
+            if(body.Length>150)return false;
         }
         public void editBody (string newBody)
         {
-
+            this.MessageContent=newBody;
         }
     }
 }
