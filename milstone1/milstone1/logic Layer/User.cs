@@ -26,7 +26,7 @@ namespace milstone1.logic_Layer
 }            
         private static bool isValid(string nickname, string group_id)
         {
-            return ;
+            return true;
         }
 
         public static User create(string nickname, string group_id)
@@ -52,6 +52,7 @@ namespace milstone1.logic_Layer
 
         public void logout()
         {
+
         }
 
         public boll isEqual(User user){

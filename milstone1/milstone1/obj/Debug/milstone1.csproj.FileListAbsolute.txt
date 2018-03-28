@@ -12,3 +12,7 @@ C:\Users\Owner\Desktop\git\milstone1\milstone1\obj\Debug\milstone1.pdb
 C:\Users\Owner\Desktop\git\milstone1\milstone1\bin\Debug\milstone1.exe.config
 C:\Users\Owner\Desktop\git\milstone1\milstone1\bin\Debug\milstone1.exe
 C:\Users\Owner\Desktop\git\milstone1\milstone1\bin\Debug\milstone1.pdb
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.csprojResolveAssemblyReference.cache
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.csproj.CoreCompileInputs.cache
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.exe
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.pdb
