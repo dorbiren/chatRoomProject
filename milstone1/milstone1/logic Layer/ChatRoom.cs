@@ -15,27 +15,27 @@ namespace milstone1.logic_Layer
         private List<User> userList;
         private List<IMessage> messagesList;
         private string url;
-        
+
 
         public ChatRoom()
         {
-            this.messagesList=FilesHandler.readMessagesFromFile();
+            this.messagesList = FilesHandler.readMessagesFromFile();
             this.userList = FilesHandler.readUsersFromFile();
         }
 
-       
+
         private bool userExists(User user)
         {
-            foreach(User u in this.userList){
+            foreach (User u in this.userList) {
                 if (u.Equals(user))
                     return true;
             }
-                throw new Exception("user already exists");
-            }
+            throw new Exception("user already exists");
+        }
 
         internal void sendMessage(string message)
         {
-            IMessage msg = loggedInUser.sendmessege(message,url);
+            IMessage msg = loggedInUser.sendmessege(message, url);
             messagesList.Add(msg);
 
         }
@@ -60,20 +60,21 @@ namespace milstone1.logic_Layer
                     return;
                 }
             }
-                {
+            {
                 throw new Exception("no such user");
+            }
         }
 
-         public void retriveMessages (int number)
-        {
-            IList<IMessage> messages = Communication.Instance.GetTenMessages(this.url);
-            messagesList.AddRange(messages);
-            FilesHandler.SaveMessages(messages);
-            
-        }
+            public void retriveMessages(int number)
+            {
+                IList<IMessage> messages = Communication.Instance.GetTenMessages(this.url);
+                messagesList.AddRange(messages);
+                FilesHandler.SaveMessages(messages);
 
-        public List<IMessage> displayMessages(int number)
-        {
+            }
+
+            public List<IMessage> displayMessages(int number)
+            {
                 List<IMessage> msg = new List<IMessage>();
                 if (messagesList.Count >= number)
                 {
@@ -90,12 +91,15 @@ namespace milstone1.logic_Layer
                     }
                 }
                 return msg;
-        }
-           
+            }
+
             public void logOut()
             {
 
             }
-        
-        
-}
+
+
+        }
+    }
+
+    
