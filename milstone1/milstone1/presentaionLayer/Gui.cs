@@ -53,13 +53,13 @@ namespace milstone1.presentaionLayer
             try
             {
                 chatroom.registration(nickName, group_id);
-            }catch(Exception e)
+            }
+            catch(Exception e)
             {
                 Console.WriteLine(e.Message);
             }
             //Console.WriteLine("1 back to manue");
-            //Console.WriteLine("2 exit");
-            chatroom.registration(nickName, g_id);
+            chatroom.registration(nickName, group_id);
         }
         public void Login()
         {
@@ -85,7 +85,7 @@ namespace milstone1.presentaionLayer
             Console.WriteLine("1 send message");
             Console.WriteLine("2 retrieve 10 messages");
             Console.WriteLine("3 display 20 messages");
-            Console.WriteLine("4 back to main menu");
+            Console.WriteLine("4 log out");
 
             string answer = Console.ReadLine();
             int ans = int.Parse(answer);
@@ -98,10 +98,24 @@ namespace milstone1.presentaionLayer
                     RetrieveMessage();
                     break;
                 case 3:
+                    DisplayMessage();
+                    break;
+                case 4:
+                    Chatroom.logOut();
                     MainMenu();
                     break;
             }
         }
+
+        public void RetrieveMessage ()
+            {
+
+            }
+
+        public void DisplayMessage()
+            {
+
+            }
 
         public void Error(String error)
         {
