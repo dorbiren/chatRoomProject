@@ -23,17 +23,17 @@ namespace milstone1.persistentLayer
 
         public static List<IMessage> readMessagesFromFile()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public static List<User> readUsersFromFile()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         internal static void SaveMessages(IList<IMessage> messages)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

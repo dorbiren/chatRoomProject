@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using milstone1.logic_Layer;
+using milstone1.CommunicationLayer;
+
 
 namespace milstone1.presentaionLayer
 {
@@ -21,36 +23,53 @@ namespace milstone1.presentaionLayer
 
         public void MainMenu()
         {
-           DeletScreen(); 
-           Console.WriteLine("WELCOME TO CHATRoom");
-           Console.WriteLine("1 register");
-           Console.WriteLine("2 login");
-           Console.WriteLine("3 exit");
-           Console.WriteLine("insert a value");
-           string answer = Console.ReadLine();
-            int ans = int.Parse(answer);
-            switch (ans)
+
+            Console.WriteLine("WELCOME TO CHATRoom");
+            Console.WriteLine("1 register");
+            Console.WriteLine("2 login");
+            Console.WriteLine("3 exit");
+            Console.WriteLine("insert a value");
+            string answer = Console.ReadLine();
+            try
             {
-                case 1:
-                    Register();
-                    break;
-                case 2:
-                    Login();
-                    break;
-                case 3:
-                    Exit();
-                    break;
+                int ans = int.Parse(answer);
+                switch (ans)
+                {
+                    case 1:
+                        DeletScreen();
+                        Register();
+                        break;
+                    case 2:
+                        Login();
+                        break;
+                    case 3:
+                        Exit();
+                        break;
+                    default:
+                        DeletScreen();
+                        Console.WriteLine("PLEASE INSERT NUMBERS BETWEEN 1-3");
+                        this.MainMenu();
+                        break;
+                }
+
             }
-         }
+            catch (Exception e)
+            {
+
+                DeletScreen();
+                Console.WriteLine(e.Message);
+                MainMenu();
+            }
+
+        }
 
         public void Exit()
         {
-            Console.WriteLine("kaka");
+            System.Environment.Exit(0);
         }
-
         public void Register()
         {
-            DeletScreen();
+
             Console.WriteLine("Register");
             Console.WriteLine("insert nick name");
             string nickName = Console.ReadLine();
@@ -59,20 +78,35 @@ namespace milstone1.presentaionLayer
             try
             {
                 chatroom.registration(nickName, group_id);
-            }catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
+                this.Login();
             }
-            //Console.WriteLine("1 back to manue");
-            //Console.WriteLine("2 exit");
-            chatroom.registration(nickName, group_id);
+            catch (Exception e)
+            {
+                DeletScreen();
+                Console.WriteLine(e.Message);
+                this.MainMenu();
+
+            }
+
         }
         public void Login()
         {
             DeletScreen();
-            Console.WriteLine("Login");
-            Console.WriteLine("1 back to manue");
-            Console.WriteLine("2 send message");
+            Console.WriteLine("insert nick name");
+            string nickName = Console.ReadLine();
+            Console.WriteLine("insert group_id");
+            string group_id = Console.ReadLine();
+            try
+            {
+                this.chatroom.login(nickName, group_id);
+            }
+            catch (Exception e)
+            {
+                DeletScreen();
+                Console.WriteLine(e.Message);
+                this.MainMenu();
+
+            }
         }
 
         private void sendMessage()
@@ -90,7 +124,7 @@ namespace milstone1.presentaionLayer
             Console.WriteLine("1 send message");
             Console.WriteLine("2 retrieve 10 messages");
             Console.WriteLine("3 display 20 messages");
-            Console.WriteLine("4 back to main menu");
+            Console.WriteLine("4 log out");
 
             string answer = Console.ReadLine();
             int ans = int.Parse(answer);
@@ -100,11 +134,30 @@ namespace milstone1.presentaionLayer
                     sendMessage();
                     break;
                 case 2:
-                    chatroom.retriveMessages(10);
+                    RetrieveMessage();
                     break;
                 case 3:
+                    DisplayMessage();
+                    break;
+                case 4:
+                    this.chatroom.logOut();
                     MainMenu();
                     break;
+            }
+        }
+
+        public void RetrieveMessage()
+        {
+            this.chatroom.retriveMessages(10);
+        }
+
+        public void DisplayMessage()
+        {
+            List<IMessage> meseeglist = this.chatroom.displayMessages(20);
+
+            foreach (IMessage mess in meseeglist)
+            {
+                Console.WriteLine(mess.ToString());
             }
         }
 
@@ -112,6 +165,7 @@ namespace milstone1.presentaionLayer
         {
             delettnumberlastlines(2);
             Console.WriteLine(error);
+            string a = Console.ReadLine();
         }
         private void DeletScreen()
         {
@@ -119,7 +173,7 @@ namespace milstone1.presentaionLayer
         }
         private void delettnumberlastlines(int a)
         {
-            for(int i=0;i<a;i++)
+            for (int i = 0; i < a; i++)
             {
                 Console.SetCursorPosition(0, Console.CursorTop - 1);
                 Console.Write(new String(' ', 100));
@@ -127,4 +181,4 @@ namespace milstone1.presentaionLayer
             Console.SetCursorPosition(0, Console.CursorTop);
         }
     }
-}
+}//ido gay

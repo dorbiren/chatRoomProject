@@ -8,7 +8,7 @@ using System.Text;
 namespace milstone1.CommunicationLayer
 {
 
-    public sealed class Communication // singleTon
+      public sealed class Communication // singleTon
     { //sealed modifier prevents other classes from inheriting from it
 
         #region Implement Singleton Design

@@ -12,3 +12,6 @@ C:\Users\Owner\Desktop\git\milstone1\milstone1\obj\Debug\milstone1.pdb
 C:\Users\Owner\Desktop\git\milstone1\milstone1\bin\Debug\milstone1.exe.config
 C:\Users\Owner\Desktop\git\milstone1\milstone1\bin\Debug\milstone1.exe
 C:\Users\Owner\Desktop\git\milstone1\milstone1\bin\Debug\milstone1.pdb
+C:\Users\Owner\Desktop\git\milstone1\milstone1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Owner\Desktop\git\milstone1\milstone1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Owner\Desktop\git\milstone1\milstone1\obj\Debug\milstone1.csproj.CopyComplete

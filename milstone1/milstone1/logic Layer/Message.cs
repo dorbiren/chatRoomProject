@@ -34,7 +34,7 @@ namespace milstone1.logic_Layer
 
         private Boolean checkValidity (string body)
         {
-
+            return true;
         }
         public void editBody (string newBody)
         {
