@@ -95,6 +95,8 @@ namespace milstone1.logic_Layer
 
             public void logOut()
             {
+            this.loggedInUser.logout();
+            this.loggedInUser = null;
 
             }
 

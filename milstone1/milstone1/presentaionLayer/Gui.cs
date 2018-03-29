@@ -42,6 +42,12 @@ namespace milstone1.presentaionLayer
                     break;
             }
          }
+
+        public void Exit()
+        {
+            Console.WriteLine("kaka");
+        }
+
         public void Register()
         {
             DeletScreen();
@@ -59,7 +65,7 @@ namespace milstone1.presentaionLayer
             }
             //Console.WriteLine("1 back to manue");
             //Console.WriteLine("2 exit");
-            chatroom.registration(nickName, g_id);
+            chatroom.registration(nickName, group_id);
         }
         public void Login()
         {
@@ -67,7 +73,6 @@ namespace milstone1.presentaionLayer
             Console.WriteLine("Login");
             Console.WriteLine("1 back to manue");
             Console.WriteLine("2 send message");
-            chatroom.handler(Console.ReadLine());
         }
 
         private void sendMessage()
@@ -107,7 +112,6 @@ namespace milstone1.presentaionLayer
         {
             delettnumberlastlines(2);
             Console.WriteLine(error);
-            chatroom.handler(Console.ReadLine());
         }
         private void DeletScreen()
         {
