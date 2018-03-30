@@ -92,6 +92,7 @@ namespace milstone1.presentaionLayer
         public void Login()
         {
             DeletScreen();
+            Console.WriteLine("LOGIN");
             Console.WriteLine("insert nick name");
             string nickName = Console.ReadLine();
             Console.WriteLine("insert group_id");
@@ -99,6 +100,8 @@ namespace milstone1.presentaionLayer
             try
             {
                 this.chatroom.login(nickName, group_id);
+                DeletScreen();
+                chat();
             }
             catch (Exception e)
             {
@@ -115,11 +118,14 @@ namespace milstone1.presentaionLayer
             Console.WriteLine("Write new message");
             string message = Console.ReadLine();
             chatroom.sendMessage(message);
+            DeletScreen();
+            Console.WriteLine("message sand succefuly");
+            chat();
         }
 
         public void chat()
         {
-            DeletScreen();
+           
             Console.WriteLine("Welcome back!");
             Console.WriteLine("1 send message");
             Console.WriteLine("2 retrieve 10 messages");
@@ -141,6 +147,7 @@ namespace milstone1.presentaionLayer
                     break;
                 case 4:
                     this.chatroom.logOut();
+                    DeletScreen();
                     MainMenu();
                     break;
             }
@@ -149,16 +156,22 @@ namespace milstone1.presentaionLayer
         public void RetrieveMessage()
         {
             this.chatroom.retriveMessages(10);
+            DeletScreen();
+            Console.WriteLine("messages retrieved succecfuly");
+            chat();
         }
 
         public void DisplayMessage()
         {
+            DeletScreen();
             List<IMessage> meseeglist = this.chatroom.displayMessages(20);
 
             foreach (IMessage mess in meseeglist)
             {
                 Console.WriteLine(mess.ToString());
             }
+
+            chat();
         }
 
         public void Error(String error)

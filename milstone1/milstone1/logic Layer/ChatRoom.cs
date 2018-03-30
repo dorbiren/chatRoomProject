@@ -19,9 +19,9 @@ namespace milstone1.logic_Layer
 
         public ChatRoom()
         {
-            this.messagesList = FilesHandler.readMessagesFromFile();
-            this.userList = FilesHandler.readUsersFromFile();
-            this.url = null;
+            this.messagesList = new List<IMessage>(); //FilesHandler.readMessagesFromFile();
+            this.userList = new List<User>(); //FilesHandler.readUsersFromFile();
+            this.url = "http://localhost/";
         }
 
 
@@ -39,6 +39,7 @@ namespace milstone1.logic_Layer
         {
             IMessage msg = loggedInUser.sendmessege(message, url);
             messagesList.Add(msg);
+            return;
 
         }
 
