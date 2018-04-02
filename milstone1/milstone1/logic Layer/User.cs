@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using milstone1.CommunicationLayer;
+using milstone1.persistentLayer;
 
 namespace milstone1.logic_Layer
 {
-    public class User 
+    public class User
     {
-        private string NickName 
+        private string NickName
         private string Group_Id;
 
         private User(string nickname, string group_id)
@@ -18,12 +19,12 @@ namespace milstone1.logic_Layer
             this.NickName = nickname;
         }
 
-        public String getNickname(){
-         return this.NickName;
-}                                  
-        public String GetGroup_Id(){
-         return this.Group_Id;
-}            
+        public String getNickname() {
+            return this.NickName;
+        }
+        public String GetGroup_Id() {
+            return this.Group_Id;
+        }
         private static bool isValid(string nickname, string group_id)
         {
             return true;
@@ -31,7 +32,7 @@ namespace milstone1.logic_Layer
 
         public static User create(string nickname, string group_id)
         {
-            if(isValid(nickname, group_id)) {
+            if (isValid(nickname, group_id)) {
                 return new User(group_id, nickname);
             }
             return null;
@@ -40,6 +41,8 @@ namespace milstone1.logic_Layer
         public IMessage sendmessege(string body, string url)
         {
             IMessage msg = Communication.Instance.Send(url, this.Group_Id, this.NickName, body);
+            saveMessage(msg);
+            
 
             //Message m = new Message(this, msg.Id, msg.Date, msg.MessageContent);
             return msg;
@@ -47,12 +50,19 @@ namespace milstone1.logic_Layer
 
         public void login()
         {
-        
+
         }
 
         public void logout()
         {
 
+        }
+        public void saveMessage(IMessage msg)
+        {
+            IList<IMessage> msgToSave = new < IMessage > IList;
+            msgToSave.Add(msg);
+            FilesHandler.SaveMessages(msgToSave);
+            
         }
 
         public boll isEqual(User user){
