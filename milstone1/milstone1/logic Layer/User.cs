@@ -10,16 +10,16 @@ namespace milstone1.logic_Layer
 {
     public class User
     {
-        private string NickName
+        private string NickName;
         private string Group_Id;
 
-        private User(string nickname, string group_id)
+        public User(string nickname, string group_id)
         {
             this.Group_Id = group_id;
             this.NickName = nickname;
         }
 
-        public String getNickname() {
+        public String GetNickname() {
             return this.NickName;
         }
         public String GetGroup_Id() {
@@ -59,16 +59,21 @@ namespace milstone1.logic_Layer
         }
         public void saveMessage(IMessage msg)
         {
-            IList<IMessage> msgToSave = new < IMessage > IList;
+            IList<IMessage> msgToSave = new List <IMessage>( );
             msgToSave.Add(msg);
             FilesHandler.SaveMessages(msgToSave);
             
         }
 
-        public boll isEqual(User user){
-            if( (this.NickName==user.NickName) && (this.Group_Id==user.Group_Id) ){ return true;}
-
+        public bool IsEqual(User user)
+        {
+             { return (this.NickName == user.NickName) && (this.Group_Id == user.Group_Id); }
+        
 }
 
+        public string ToString()
+        {
+            return this.GetNickname() +  " " + this.GetGroup_Id();
+        }
     }
 }

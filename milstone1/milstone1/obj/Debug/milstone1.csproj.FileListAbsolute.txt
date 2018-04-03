@@ -16,3 +16,9 @@ C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milst
 C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.csproj.CoreCompileInputs.cache
 C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.exe
 C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.pdb
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\milstone1.exe.config
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\milstone1.exe
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\milstone1.pdb
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.csproj.CopyComplete

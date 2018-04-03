@@ -5,19 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using milstone1.logic_Layer;
 using milstone1.CommunicationLayer;
+using milstone1.persistentLayer;
 
 
 namespace milstone1.presentaionLayer
 {
     public class Gui
     {
+
         private ChatRoom chatroom;
         public Gui(ChatRoom chatroom)
         {
             this.chatroom = chatroom;
         }
+        
         public void start()
         {
+            
             this.MainMenu();
         }
 
@@ -45,6 +49,7 @@ namespace milstone1.presentaionLayer
                     case 3:
                         Exit();
                         break;
+
                     default:
                         DeletScreen();
                         Console.WriteLine("PLEASE INSERT NUMBERS BETWEEN 1-3");
@@ -119,7 +124,7 @@ namespace milstone1.presentaionLayer
             string message = Console.ReadLine();
             chatroom.sendMessage(message);
             DeletScreen();
-            Console.WriteLine("message sand succefuly");
+            Console.WriteLine("message send succefuly");
             chat();
         }
 
@@ -193,4 +198,6 @@ namespace milstone1.presentaionLayer
             }
             Console.SetCursorPosition(0, Console.CursorTop);
         }
+        
     }
+}

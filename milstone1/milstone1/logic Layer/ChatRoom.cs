@@ -46,9 +46,11 @@ namespace milstone1.logic_Layer
         public void registration(string nickName, string group_id)
         {
             User user = User.create(nickName, group_id);
+            
             if (userNotExists(user))
             {
                 userList.Add(user);
+                FilesHandler.SaveUser(user);
                 return;
             }
         }
@@ -57,7 +59,7 @@ namespace milstone1.logic_Layer
         {
             foreach (User u in this.userList)
             {
-                if (u.NickName.Equals(nickName) && u.Group_Id.Equals(group_id))
+                if (u.GetNickname().Equals(nickName) && u.GetGroup_Id().Equals(group_id))
                 {
                     loggedInUser = u;
                     u.login();
@@ -71,7 +73,7 @@ namespace milstone1.logic_Layer
 
         public void retriveMessages(int number)
         {
-            IList<IMessage> messages = Communication.Instance.GetTenMessages(this.url);
+            IList<IMessage> messages= Communication.Instance.GetTenMessages(this.url);
             messagesList.AddRange(messages);
             FilesHandler.SaveMessages(messages);
 
