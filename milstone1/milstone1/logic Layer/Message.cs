@@ -13,7 +13,7 @@ namespace milstone1.logic_Layer
 
         public Guid Id { get; }
 
-        public string UserName { get { return user.NickName; } }
+        public string UserName { get { return user.GetNickname(); } }
 
         public DateTime Date { get; }
 
@@ -21,10 +21,10 @@ namespace milstone1.logic_Layer
 
         public string GroupID
         {
-            get { return user.Group_Id; }
+            get { return user.GetGroup_Id(); }
         }
 
-        public Message (User user, Guid id, DateTime date, string messageContent)
+        public Message(User user, Guid id, DateTime date, string messageContent)
         {
             this.user = user;
             this.Id = id;
@@ -32,13 +32,18 @@ namespace milstone1.logic_Layer
             this.MessageContent = messageContent;
         }
 
-        private Boolean checkValidity (string body)
+        private Boolean checkValidity(string body)
         {
-
+            if (body.Length > 150) return false;
+            else return true;
         }
-        public void editBody (string newBody)
+        public void editBody(string newBody)
         {
-
+            //this.MessageContent=newBody;
+        }
+        public string ToString()
+        {
+            return this.user + "," + this.Id + "," + this.UserName + "," + this.Date + "," + this.MessageContent + "," + this.GroupID;
         }
     }
 }

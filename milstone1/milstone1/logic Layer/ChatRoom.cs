@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using milstone1.CommunicationLayer;
 using milstone1.presentaionLayer;
+using milstone1.persistentLayer;
 
 namespace milstone1.logic_Layer
 {
@@ -14,64 +15,103 @@ namespace milstone1.logic_Layer
         private List<User> userList;
         private List<IMessage> messagesList;
         private string url;
-    
+
 
         public ChatRoom()
-        { 
-           
+        {
+            this.messagesList = new List<IMessage>(); //FilesHandler.readMessagesFromFile();
+            this.userList = FilesHandler.ReadUsers();
+            this.url = "http://localhost/";
         }
 
-       
-        private bool userExists(User user)
+
+        private bool userNotExists(User user)
         {
-            if (/* check is user is not in the list */)
+            foreach (User u in this.userList)
             {
-                return true;
+                if (u.Equals(user))
+                    throw new Exception("user already exists");
             }
-            else
-            {
-                throw new Exception("user already exists");
-            }
+            return true;
         }
 
         internal void sendMessage(string message)
         {
-            IMessage msg = loggedInUser.sendmessege(message,url);
+            IMessage msg = loggedInUser.sendmessege(message, url);
             messagesList.Add(msg);
+            return;
+
         }
 
-        public void registration(string nickName, string group_id) {
+        public void registration(string nickName, string group_id)
+        {
             User user = User.create(nickName, group_id);
-            if (userExists(user))
+
+            if (userNotExists(user))
             {
                 userList.Add(user);
+                //FilesHandler.SaveUser(user);
                 return;
             }
         }
 
         public void login(String nickName, string group_id)
         {
-            User user = null /*get from list*/;
-            if (user == null)
+            foreach (User u in this.userList)
             {
-                throw new Exception("no such usser");
-            } else
+                if (u.GetNickname().Equals(nickName) && u.GetGroup_Id().Equals(group_id))
+                {
+                    loggedInUser = u;
+                    u.login();
+                    return;
+                }
+            }
             {
-                loggedInUser = user;
-                user.login();
+                throw new Exception("no such user");
             }
         }
 
-        public void retriveMessages (int number)
+        public void retriveMessages(int number)
         {
-            IList<IMessage> mesagges = Communication.Instance.GetTenMessages(this.url);
+            IList<IMessage> messages = Communication.Instance.GetTenMessages(this.url);
             messagesList.AddRange(messages);
+            // FilesHandler.SaveMessages(messages);
+
         }
 
-        public string displayMessages(int number)
+        public List<IMessage> displayMessages(int number)
         {
-            
-        }//j
+            List<IMessage> msg = new List<IMessage>();
+            if (messagesList.Count >= number)
+            {
+                for (int i = 0; i < number; i++)
+                {
+                    msg.Insert(i, messagesList[i]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < messagesList.Count; i++)
+                {
+                    msg.Insert(i, messagesList[i]);
+                }
+            }
+            return msg;
+        }
 
-        
+        public void logOut()
+        {
+            this.loggedInUser.logout();
+            this.loggedInUser = null;
+
+        }
+
+        public void Exit()
+        {
+            FilesHandler.SaveUsers(this.userList);
+            FilesHandler.SaveMessages(this.messagesList);
+        }
+
+
+    }
 }
