@@ -41,5 +41,9 @@ namespace milstone1.logic_Layer
         {
             //this.MessageContent=newBody;
         }
+        public string ToString()
+        {
+            return this.user + "," + this.Id + "," + this.UserName + "," + this.Date + "," + this.MessageContent + "," + this.GroupID;
+        }
     }
 }

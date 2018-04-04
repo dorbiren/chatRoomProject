@@ -73,7 +73,7 @@ namespace milstone1.logic_Layer
 
         public string ToString()
         {
-            return this.GetNickname() +  " " + this.GetGroup_Id();
+            return this.GetNickname() +  "," + this.GetGroup_Id();
         }
     }
 }
