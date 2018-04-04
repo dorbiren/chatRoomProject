@@ -26,10 +26,9 @@ namespace milstone1.persistentLayer
             
 
         }
-        
         public static void SaveUsers(IList<User> users)
         {
-            using (StreamWriter sw = new StreamWriter(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\messages.csv"))
+            using (StreamWriter sw = new StreamWriter(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\users.csv"))
             {
 
                 foreach (User U in users)

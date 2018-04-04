@@ -20,7 +20,7 @@ namespace milstone1.logic_Layer
         public ChatRoom()
         {
             this.messagesList = new List<IMessage>(); //FilesHandler.readMessagesFromFile();
-            this.userList = new List<User>(); //FilesHandler.readUsersFromFile();
+            this.userList = FilesHandler.ReadUsers();
             this.url = "http://localhost/";
         }
 
@@ -50,7 +50,7 @@ namespace milstone1.logic_Layer
             if (userNotExists(user))
             {
                 userList.Add(user);
-                FilesHandler.SaveUser(user);
+                //FilesHandler.SaveUser(user);
                 return;
             }
         }
@@ -75,7 +75,7 @@ namespace milstone1.logic_Layer
         {
             IList<IMessage> messages= Communication.Instance.GetTenMessages(this.url);
             messagesList.AddRange(messages);
-            FilesHandler.SaveMessages(messages);
+           // FilesHandler.SaveMessages(messages);
 
         }
 
@@ -104,6 +104,12 @@ namespace milstone1.logic_Layer
             this.loggedInUser.logout();
             this.loggedInUser = null;
 
+        }
+
+        public void Exit()
+        {
+            FilesHandler.SaveUsers(this.userList);
+            FilesHandler.SaveMessages(this.messagesList);
         }
 
 

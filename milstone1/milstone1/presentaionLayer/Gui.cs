@@ -21,7 +21,7 @@ namespace milstone1.presentaionLayer
         
         public void start()
         {
-            test();
+          
             this.MainMenu();
         }
 
@@ -70,6 +70,7 @@ namespace milstone1.presentaionLayer
 
         public void Exit()
         {
+            this.chatroom.Exit();
             System.Environment.Exit(0);
         }
         public void Register()
@@ -198,11 +199,6 @@ namespace milstone1.presentaionLayer
             }
             Console.SetCursorPosition(0, Console.CursorTop);
         }
-       public void test()
-        {
-            List<User>Userlist=FilesHandler.ReadUsers();
-            User u = Userlist.Last();
-           Console.WriteLine( u.ToString());
-        } 
+      
     }
 }

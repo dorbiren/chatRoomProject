@@ -33,7 +33,7 @@ namespace milstone1.logic_Layer
         public static User create(string nickname, string group_id)
         {
             if (isValid(nickname, group_id)) {
-                return new User(group_id, nickname);
+                return new User(nickname, group_id);
             }
             return null;
         }
@@ -67,7 +67,7 @@ namespace milstone1.logic_Layer
 
         public bool IsEqual(User user)
         {
-             { return (this.NickName == user.NickName) && (this.Group_Id == user.Group_Id); }
+             { return((this.NickName == user.NickName) && (this.Group_Id == user.Group_Id)); }
         
 }
 
