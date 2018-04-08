@@ -1,0 +1,46 @@
+2018-04-04 17:29:32,592 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:20:08,530 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:20:08,599 [1] ERROR milstone1.Program [(null)] - this is error
+System.Exception: no massages
+   ב-  milstone1.persistentLayer.FilesHandler.ReadMessagesFromFile() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\FilesHandler.cs:שורה 92
+   ב-  milstone1.logic_Layer.ChatRoom..ctor() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\logic Layer\ChatRoom.cs:שורה 23
+   ב-  milstone1.Program.Main(String[] args) ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\Program.cs:שורה 20
+2018-04-08 18:20:08,634 [1] INFO  milstone1.Program [(null)] - exit chat room
+2018-04-08 18:20:22,212 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:20:22,241 [1] ERROR milstone1.Program [(null)] - this is error
+System.Exception: no massages
+   ב-  milstone1.persistentLayer.FilesHandler.ReadMessagesFromFile() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\FilesHandler.cs:שורה 92
+   ב-  milstone1.logic_Layer.ChatRoom..ctor() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\logic Layer\ChatRoom.cs:שורה 23
+   ב-  milstone1.Program.Main(String[] args) ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\Program.cs:שורה 20
+2018-04-08 18:20:22,255 [1] INFO  milstone1.Program [(null)] - exit chat room
+2018-04-08 18:20:37,628 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:20:37,660 [1] ERROR milstone1.Program [(null)] - this is error
+System.Exception: no massages
+   ב-  milstone1.persistentLayer.FilesHandler.ReadMessagesFromFile() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\FilesHandler.cs:שורה 92
+   ב-  milstone1.logic_Layer.ChatRoom..ctor() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\logic Layer\ChatRoom.cs:שורה 23
+   ב-  milstone1.Program.Main(String[] args) ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\Program.cs:שורה 20
+2018-04-08 18:20:37,677 [1] INFO  milstone1.Program [(null)] - exit chat room
+2018-04-08 18:21:35,776 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:24:46,658 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:24:46,722 [1] ERROR milstone1.Program [(null)] - this is error
+System.InvalidCastException: אין אפשרות לבצע המרה של אובייקט מסוג 'System.Collections.Generic.List`1[milstone1.CommunicationLayer.IMessage]' לסוג 'System.Collections.Generic.List`1[milstone1.logic_Layer.Message]'.
+   ב-  milstone1.persistentLayer.FilesHandler.ReadMessagesFromFile() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\FilesHandler.cs:שורה 88
+   ב-  milstone1.logic_Layer.ChatRoom..ctor() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\logic Layer\ChatRoom.cs:שורה 23
+   ב-  milstone1.Program.Main(String[] args) ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\Program.cs:שורה 20
+2018-04-08 18:24:46,729 [1] INFO  milstone1.Program [(null)] - exit chat room
+2018-04-08 18:25:11,206 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:25:11,246 [1] ERROR milstone1.Program [(null)] - this is error
+System.InvalidCastException: אין אפשרות לבצע המרה של אובייקט מסוג 'System.Collections.Generic.List`1[milstone1.CommunicationLayer.IMessage]' לסוג 'System.Collections.Generic.List`1[milstone1.logic_Layer.Message]'.
+   ב-  milstone1.persistentLayer.FilesHandler.ReadMessagesFromFile() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\FilesHandler.cs:שורה 88
+   ב-  milstone1.logic_Layer.ChatRoom..ctor() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\logic Layer\ChatRoom.cs:שורה 23
+   ב-  milstone1.Program.Main(String[] args) ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\Program.cs:שורה 20
+2018-04-08 18:25:11,254 [1] INFO  milstone1.Program [(null)] - exit chat room
+2018-04-08 18:26:43,839 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:26:43,883 [1] ERROR milstone1.Program [(null)] - this is error
+System.InvalidCastException: אין אפשרות לבצע המרה של אובייקט מסוג 'System.Collections.Generic.List`1[milstone1.CommunicationLayer.IMessage]' לסוג 'System.Collections.Generic.List`1[milstone1.logic_Layer.Message]'.
+   ב-  milstone1.persistentLayer.FilesHandler.ReadMessagesFromFile() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\FilesHandler.cs:שורה 88
+   ב-  milstone1.logic_Layer.ChatRoom..ctor() ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\logic Layer\ChatRoom.cs:שורה 23
+   ב-  milstone1.Program.Main(String[] args) ב- C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\Program.cs:שורה 20
+2018-04-08 18:26:43,890 [1] INFO  milstone1.Program [(null)] - exit chat room
+2018-04-08 18:30:47,015 [1] INFO  milstone1.Program [(null)] - start my log
+2018-04-08 18:33:04,435 [1] INFO  milstone1.Program [(null)] - start my log

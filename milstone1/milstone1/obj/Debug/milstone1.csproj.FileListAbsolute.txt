@@ -22,3 +22,6 @@ C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milst
 C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\Newtonsoft.Json.dll
 C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.csproj.CopyComplete
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\log4.config
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\log4net.dll
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\log4net.xml

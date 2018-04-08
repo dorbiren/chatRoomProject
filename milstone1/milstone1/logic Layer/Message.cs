@@ -7,7 +7,7 @@ using milstone1.CommunicationLayer;
 
 namespace milstone1.logic_Layer
 {
-    class Message : IMessage
+   public  class Message : IMessage
     {
         private User user;
 

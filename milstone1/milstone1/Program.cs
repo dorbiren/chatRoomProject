@@ -10,11 +10,23 @@ namespace milstone1
 {
     public class Program
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+               (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         static void Main(string[] args)
         {
-            ChatRoom c = new ChatRoom();
-            Gui a = new Gui(c);
-            a.start();
+            try
+            {
+                log.Info("start my log");
+                ChatRoom c = new ChatRoom();
+                Gui a = new Gui(c);
+                a.start();
+            }
+            catch(Exception e)
+            {
+                log.Error("this is error", e);
+
+            }
+            log.Info("exit chat room");
         }
     }
 }

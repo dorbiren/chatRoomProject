@@ -199,6 +199,6 @@ namespace milstone1.presentaionLayer
             }
             Console.SetCursorPosition(0, Console.CursorTop);
         }
-      
+       
     }
 }
