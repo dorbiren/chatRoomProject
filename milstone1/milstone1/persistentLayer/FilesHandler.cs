@@ -83,15 +83,23 @@ namespace milstone1.persistentLayer
             return users;
         }
         */
-        public static List<Message> ReadMessagesFromFile()
+       public static IList<Message> ReadMessagesFromFile()
         {
-            List <Message> MsgList = new List <Message>();
+            
+            
+            IList <Message> MsgList = new List <Message>();
+           
             if (File.Exists("data.bin"))
             {
+                
                 Stream myOtherFileStream = File.OpenRead("data.bin");
                 BinaryFormatter deserializer = new BinaryFormatter();
-                MsgList = (List<Message>)deserializer.Deserialize(myOtherFileStream);
+                
+                MsgList = (IList<Message>) deserializer.Deserialize(myOtherFileStream);
+                
+                Console.WriteLine(MsgList);
                 myOtherFileStream.Close();
+                
                 return MsgList;
             }
             else throw new Exception("no massages");

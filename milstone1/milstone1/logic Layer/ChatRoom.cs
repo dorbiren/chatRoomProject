@@ -20,7 +20,8 @@ namespace milstone1.logic_Layer
         public ChatRoom()
         {
             this.messagesList = new List<IMessage>();
-           // FilesHandler.ReadMessagesFromFile();
+            
+           FilesHandler.ReadMessagesFromFile();
             this.userList = FilesHandler.ReadUsers();
             this.url = "http://localhost/";
         }
