@@ -21,7 +21,11 @@ namespace milstone1.presentaionLayer
         
         public void start()
         {
+<<<<<<< HEAD
           
+=======
+           
+>>>>>>> 0f497a238b1b12f1c97127b70cda94fae5a7cd00
             this.MainMenu();
         }
 
@@ -199,6 +203,10 @@ namespace milstone1.presentaionLayer
             }
             Console.SetCursorPosition(0, Console.CursorTop);
         }
+<<<<<<< HEAD
        
+=======
+      
+>>>>>>> 0f497a238b1b12f1c97127b70cda94fae5a7cd00
     }
 }

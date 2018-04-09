@@ -14,6 +14,19 @@ namespace milstone1.persistentLayer
 
         public static void SaveMessages(IList<IMessage> messages)
         {
+<<<<<<< HEAD
+=======
+            
+                using (StreamWriter sw = new StreamWriter(@"C:\Users\Owner\source\repos\milstone1\milstone1\persistentLayer\messages.csv"))
+                {
+
+                    foreach (IMessage msg in messages)
+                    {
+                        sw.WriteLine(msg.ToString());
+                    }
+                }
+            
+>>>>>>> 0f497a238b1b12f1c97127b70cda94fae5a7cd00
 
             Stream myFileStream = File.Create("data.bin");
             BinaryFormatter serializes = new BinaryFormatter();
@@ -22,7 +35,11 @@ namespace milstone1.persistentLayer
         }
         public static void SaveUsers(IList<User> users)
         {
+<<<<<<< HEAD
             using (StreamWriter sw = new StreamWriter(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\users.csv"))
+=======
+            using (StreamWriter sw = new StreamWriter(@"C:\Users\Owner\source\repos\milstone1\milstone1\persistentLayer\users.csv"))
+>>>>>>> 0f497a238b1b12f1c97127b70cda94fae5a7cd00
             {
 
                 foreach (User U in users)
@@ -33,14 +50,14 @@ namespace milstone1.persistentLayer
         }
         public static void SaveUser(User user)
         {
-            using (StreamWriter sw = new StreamWriter(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\users.csv"))
+            using (StreamWriter sw = new StreamWriter(@"C:\Users\Owner\source\repos\milstone1\milstone1\persistentLayer\user.csv"))
                 sw.WriteLine(user.ToString());
         }
         public static List<User> ReadUsers()
         {
             List<string> column1 = new List<string>();
             List<string> column2 = new List<string>();
-            using (var rd = new StreamReader(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\users.csv"))
+            using (var rd = new StreamReader(@"C:\Users\Owner\source\repos\milstone1\milstone1\persistentLayer\user.csv"))
             {
                 while (!rd.EndOfStream)
                 {   //saving user data into 2 lists (1 for username ,1 for groupid)
