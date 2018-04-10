@@ -36,3 +36,16 @@ C:\Users\yaniv\Desktop\פרויקט תכנה\מבוא להנדסת תוכנה\mi
 C:\Users\yaniv\Desktop\פרויקט תכנה\מבוא להנדסת תוכנה\milstone1\obj\Debug\milstone1.exe
 C:\Users\yaniv\Desktop\פרויקט תכנה\מבוא להנדסת תוכנה\milstone1\obj\Debug\milstone1.pdb
 C:\Users\yaniv\Desktop\פרויקט תכנה\מבוא להנדסת תוכנה\milstone1\bin\Debug\log4net.config
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\log4net.config
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\milstone1.exe.config
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\milstone1.exe
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\milstone1.pdb
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\log4net.dll
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\log4net.xml
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.csprojResolveAssemblyReference.cache
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.csproj.CoreCompileInputs.cache
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.csproj.CopyComplete
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.exe
+C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\obj\Debug\milstone1.pdb

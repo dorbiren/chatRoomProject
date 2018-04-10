@@ -96,6 +96,8 @@ namespace milstone1.logic_Layer
                     }
                 }
                 messagesList.AddRange(Nmessages);
+                List<Message> SortedList = this.messagesList.OrderBy(o => o.Date).ToList();
+                this.messagesList = SortedList;
                 FilesHandler.SaveMessages(this.messagesList);
             }
             catch (Exception e)
@@ -114,7 +116,7 @@ namespace milstone1.logic_Layer
             {
                 for (int i = 0; i < number; i++)
                 {
-                    msg.Insert(i, messagesList[i]);
+                    msg.Insert(i, messagesList[messagesList.Count-1-i]);
                 }
             }
             else
@@ -147,7 +149,8 @@ namespace milstone1.logic_Layer
                 if (M.GroupID.Equals(Group_Id) && M.UserName.Equals(NickName))
                     msg.Add(M);
             }
-            return msg;
+            List<Message> SortedList = msg.OrderBy(o => o.Date).ToList();
+            return SortedList;
         }
 
 
