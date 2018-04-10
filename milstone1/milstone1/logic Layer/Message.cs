@@ -7,29 +7,29 @@ using milstone1.CommunicationLayer;
 
 namespace milstone1.logic_Layer
 {
-    class Message : IMessage
+    [Serializable]
+    public class Message : IMessage
     {
-        private User user;
 
         public Guid Id { get; }
 
-        public string UserName { get { return user.GetNickname(); } }
+        public string UserName { get; set; }
 
         public DateTime Date { get; }
 
         public string MessageContent { get; }
 
-        public string GroupID
-        {
-            get { return user.GetGroup_Id(); }
-        }
+        public string GroupID { get; set; }
 
-        public Message(User user, Guid id, DateTime date, string messageContent)
+
+        public Message(IMessage msg)
         {
-            this.user = user;
-            this.Id = id;
-            this.Date = date;
-            this.MessageContent = messageContent;
+            //this.user = user;
+            this.Id = msg.Id;
+            this.Date = msg.Date;
+            this.MessageContent = msg.MessageContent;
+            this.UserName = msg.UserName;
+            this.GroupID = msg.GroupID;
         }
 
         private Boolean checkValidity(string body)
@@ -43,7 +43,12 @@ namespace milstone1.logic_Layer
         }
         public string ToString()
         {
-            return this.user + "," + this.Id + "," + this.UserName + "," + this.Date + "," + this.MessageContent + "," + this.GroupID;
+            string final= this.Id + "@" + this.UserName + "@" + this.GroupID + "@" + this.Date + "@" + this.MessageContent + "@";
+            final = final.Replace("@", System.Environment.NewLine);
+            return final;
+            
+
         }
+
     }
 }

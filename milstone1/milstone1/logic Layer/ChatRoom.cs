@@ -11,17 +11,20 @@ namespace milstone1.logic_Layer
 {
     public class ChatRoom
     {
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+                (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private User loggedInUser;
         private List<User> userList;
-        private List<IMessage> messagesList;
+        private List<Message> messagesList;
         private string url;
 
 
         public ChatRoom()
         {
-            this.messagesList = new List<IMessage>(); //FilesHandler.readMessagesFromFile();
+            this.messagesList = FilesHandler.ReadMessagesFromFile();
             this.userList = FilesHandler.ReadUsers();
-            this.url = "http://localhost/";
+            this.url = "http://ise172.ise.bgu.ac.il:80";
         }
 
 
@@ -29,7 +32,7 @@ namespace milstone1.logic_Layer
         {
             foreach (User u in this.userList)
             {
-                if (u.Equals(user))
+                if (u.IsEqual(user))
                     throw new Exception("user already exists");
             }
             return true;
@@ -37,8 +40,10 @@ namespace milstone1.logic_Layer
 
         internal void sendMessage(string message)
         {
-            IMessage msg = loggedInUser.sendmessege(message, url);
+           
+            Message msg = loggedInUser.SendMessege(message, url);
             messagesList.Add(msg);
+            FilesHandler.SaveMessages(this.messagesList);
             return;
 
         }
@@ -50,7 +55,7 @@ namespace milstone1.logic_Layer
             if (userNotExists(user))
             {
                 userList.Add(user);
-                //FilesHandler.SaveUser(user);
+                FilesHandler.SaveUsers(this.userList);
                 return;
             }
         }
@@ -73,15 +78,38 @@ namespace milstone1.logic_Layer
 
         public void retriveMessages(int number)
         {
-            IList<IMessage> messages = Communication.Instance.GetTenMessages(this.url);
-            messagesList.AddRange(messages);
-            // FilesHandler.SaveMessages(messages);
+            try
+            {
+                IList<IMessage> messages = Communication.Instance.GetTenMessages(this.url);
+                List<Message> Nmessages = new List<Message>();
+                foreach (IMessage M in messages)
+                {
+                    Message M2 = new Message(M);
+                    Nmessages.Add(M2);
+                }
+                foreach (Message mess in Nmessages.ToList())
+                {
+                    foreach (Message msg in this.messagesList.ToList())
+                    {
+                        if (mess.Id.Equals(msg.Id))
+                            Nmessages.Remove(mess);
+                    }
+                }
+                messagesList.AddRange(Nmessages);
+                FilesHandler.SaveMessages(this.messagesList);
+            }
+            catch (Exception e)
+            {
+
+                log.Error("error for reterive messeage", e);
+            }
+            log.Info("reterive messeages succesfully");
 
         }
 
-        public List<IMessage> displayMessages(int number)
+        public List<Message> displayMessages(int number)
         {
-            List<IMessage> msg = new List<IMessage>();
+            List<Message> msg = new List<Message>();
             if (messagesList.Count >= number)
             {
                 for (int i = 0; i < number; i++)
@@ -108,8 +136,18 @@ namespace milstone1.logic_Layer
 
         public void Exit()
         {
-            FilesHandler.SaveUsers(this.userList);
-            FilesHandler.SaveMessages(this.messagesList);
+          
+        }
+
+        public  List<Message> displayAll(string NickName, string Group_Id)
+        {
+            List<Message> msg = new List<Message>();
+                 foreach (Message M in this.messagesList)
+            {
+                if (M.GroupID.Equals(Group_Id) && M.UserName.Equals(NickName))
+                    msg.Add(M);
+            }
+            return msg;
         }
 
 

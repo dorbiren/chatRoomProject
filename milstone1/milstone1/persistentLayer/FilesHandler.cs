@@ -6,84 +6,52 @@ using System.Text;
 using System.Threading.Tasks;
 using milstone1.CommunicationLayer;
 using milstone1.logic_Layer;
-
+using System.Runtime.Serialization.Formatters.Binary;
 namespace milstone1.persistentLayer
 {
     public class FilesHandler
     {
 
-        public static void SaveMessages(IList<IMessage> messages)
+        public static void SaveMessages(IList<Message> messages)
         {
 
-            using (StreamWriter sw = new StreamWriter(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\messages.csv"))
-            {
-
-                foreach (IMessage msg in messages)
-                {
-                    sw.WriteLine(msg.ToString());
-                }
-            }
-
-
+            Stream myFileStream = File.Create("messagesdata.bin");
+            BinaryFormatter serializes = new BinaryFormatter();
+            serializes.Serialize(myFileStream, messages);
+            myFileStream.Close();
         }
         public static void SaveUsers(IList<User> users)
         {
-            using (StreamWriter sw = new StreamWriter(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\users.csv"))
-            {
-
-                foreach (User U in users)
-                {
-                    sw.WriteLine(U.ToString());
-                }
-            }
-        }
-        public static void SaveUser(User user)
-        {
-            using (StreamWriter sw = new StreamWriter(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\users.csv"))
-                sw.WriteLine(user.ToString());
+            Stream myFileStream = File.Create("usersdata.bin");
+            BinaryFormatter serializes = new BinaryFormatter();
+            serializes.Serialize(myFileStream, users);
+            myFileStream.Close();
         }
         public static List<User> ReadUsers()
         {
-            List<string> column1 = new List<string>();
-            List<string> column2 = new List<string>();
-            using (var rd = new StreamReader(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\users.csv"))
+            List<User> usersList = new List<User>();
+            if (File.Exists("usersdata.bin"))
             {
-                while (!rd.EndOfStream)
-                {   //saving user data into 2 lists (1 for username ,1 for groupid)
-                    var splits = rd.ReadLine().Split(',');
-                    column1.Add(splits[0]);
-                    column2.Add(splits[1]);
-                }
+                Stream myOtherFileStream = File.OpenRead("usersdata.bin");
+                BinaryFormatter deserializer = new BinaryFormatter();
+                usersList = (List<User>)deserializer.Deserialize(myOtherFileStream);
+                myOtherFileStream.Close();
 
             }
-
-            List<User> user = column1.Zip(column2, (name, age) => new User(name, age))
-    .ToList();
-
-            return user;
+            return usersList;
         }
-        /*public static List<Message> ReadMessages()
+        public static List<Message> ReadMessagesFromFile()
         {
-            List<string> column1 = new List<string>();
-            List<string> column2 = new List<string>();
-            List<string> column3 = new List<string>();
-            List<string> column4 = new List<string>();
-            List<string> column5 = new List<string>();
-            List<string> column6 = new List<string>();
-            using (var rd = new StreamReader(@"C:\Users\dorbi\OneDrive\Desktop\study\coms\repos\chatRoomProject\milstone1\milstone1\persistentLayer\messages.csv"))
-                while (!rd.EndOfStream)
-            {   //saving user data into 2 lists (1 for username ,1 for groupid)
-                var splits = rd.ReadLine().Split(',');
-                column1.Add(splits[0]);
-                column2.Add(splits[1]);
-                column3.Add(splits[2]);
-                column4.Add(splits[3]);
-                column5.Add(splits[4]);
-                column6.Add(splits[5]);
+            List<Message> MsgList = new List<Message>();
+            if (File.Exists("messagesdata.bin"))
+            {
+                Stream myOtherFileStream = File.OpenRead("messagesdata.bin");
+                BinaryFormatter deserializer = new BinaryFormatter();
+                MsgList = (List<Message>)deserializer.Deserialize(myOtherFileStream);
+                myOtherFileStream.Close();
 
-
-                }
-        }*/
-
+            }
+            return MsgList;
+        }
     }
 }

@@ -1,0 +1,11 @@
+2018-04-10 10:49:46,319 [1] INFO  milstone1.Program [(null)] - Info logging
+2018-04-10 11:07:24,531 [1] INFO  milstone1.Program [(null)] - Info logging
+2018-04-10 11:07:32,423 [1] ERROR milstone1.presentaionLayer.Gui [(null)] - This is the error
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at milstone1.presentaionLayer.Gui.MainMenu() in C:\Users\yaniv\Desktop\?????? ????\???? ?????? ?????\milstone1\presentaionLayer\Gui.cs:line 42
+2018-04-10 11:17:28,042 [1] INFO  milstone1.Program [(null)] - Info logging
+2018-04-10 11:17:38,150 [1] INFO  milstone1.logic_Layer.ChatRoom [(null)] - reterive messeages succesfully
+2018-04-10 12:03:35,731 [1] INFO  milstone1.Program [(null)] - Start System

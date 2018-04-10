@@ -10,8 +10,11 @@ using milstone1.persistentLayer;
 
 namespace milstone1.presentaionLayer
 {
+
     public class Gui
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+              (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private ChatRoom chatroom;
         public Gui(ChatRoom chatroom)
@@ -63,6 +66,7 @@ namespace milstone1.presentaionLayer
 
                 DeletScreen();
                 Console.WriteLine(e.Message);
+                log.Error("This is the error", e);
                 MainMenu();
             }
 
@@ -70,7 +74,7 @@ namespace milstone1.presentaionLayer
 
         public void Exit()
         {
-            this.chatroom.Exit();
+           
             System.Environment.Exit(0);
         }
         public void Register()
@@ -123,10 +127,19 @@ namespace milstone1.presentaionLayer
             DeletScreen();
             Console.WriteLine("Write new message");
             string message = Console.ReadLine();
-            chatroom.sendMessage(message);
-            DeletScreen();
-            Console.WriteLine("message send succefuly");
-            chat();
+            try
+            {
+                chatroom.sendMessage(message);
+                DeletScreen();
+                Console.WriteLine("message send succefuly");
+                chat();
+            }
+            catch  (Exception e)
+            {
+                DeletScreen();
+                Console.WriteLine(e.Message);
+                chat();
+            }
         }
 
         public void chat()
@@ -136,29 +149,47 @@ namespace milstone1.presentaionLayer
             Console.WriteLine("1 send message");
             Console.WriteLine("2 retrieve 10 messages");
             Console.WriteLine("3 display 20 messages");
-            Console.WriteLine("4 log out");
+            Console.WriteLine("4 display all messages of a user");
+            Console.WriteLine("5 log out");
 
             string answer = Console.ReadLine();
-            int ans = int.Parse(answer);
-            switch (ans)
+            try
             {
-                case 1:
-                    sendMessage();
-                    break;
-                case 2:
-                    RetrieveMessage();
-                    break;
-                case 3:
-                    DisplayMessage();
-                    break;
-                case 4:
-                    this.chatroom.logOut();
-                    DeletScreen();
-                    MainMenu();
-                    break;
+                int ans = int.Parse(answer);
+                switch (ans)
+                {
+                    case 1:
+                        sendMessage();
+                        break;
+                    case 2:
+                        RetrieveMessage();
+                        break;
+                    case 3:
+                        DisplayMessage();
+                        break;
+                    case 4:
+                        DeletScreen();
+                        this.displayAllbyuser();
+                        break;
+                    case 5:
+                        this.chatroom.logOut();
+                        DeletScreen();
+                        MainMenu();
+                        break;
+                    default:
+                        DeletScreen();
+                        Console.WriteLine("PLEASE INSERT NUMBERS BETWEEN 1-5");
+                        this.chat();
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                DeletScreen();
+                Console.WriteLine(e.Message);
+                chat();
             }
         }
-
         public void RetrieveMessage()
         {
             this.chatroom.retriveMessages(10);
@@ -170,9 +201,9 @@ namespace milstone1.presentaionLayer
         public void DisplayMessage()
         {
             DeletScreen();
-            List<IMessage> meseeglist = this.chatroom.displayMessages(20);
+            List<Message> meseeglist = this.chatroom.displayMessages(20);
 
-            foreach (IMessage mess in meseeglist)
+            foreach (Message mess in meseeglist)
             {
                 Console.WriteLine(mess.ToString());
             }
@@ -198,6 +229,28 @@ namespace milstone1.presentaionLayer
                 Console.Write(new String(' ', 100));
             }
             Console.SetCursorPosition(0, Console.CursorTop);
+        }
+        private void displayAllbyuser()
+        {
+            Console.WriteLine("insert nickname");
+            string nick=Console.ReadLine();
+            Console.WriteLine("insert groupid");
+            string groupid=Console.ReadLine();
+            DeletScreen();
+            List<Message> msg = this.chatroom.displayAll(nick, groupid);
+            if (msg.Count == 0)
+            {
+                Console.WriteLine("there are no such messages");
+                this.chat();
+            }
+            foreach (Message mess in msg)
+            {
+                Console.WriteLine(mess.ToString());
+            }
+            this.chat();
+
+
+
         }
 
     }

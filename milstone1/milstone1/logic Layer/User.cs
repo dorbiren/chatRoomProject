@@ -8,6 +8,7 @@ using milstone1.persistentLayer;
 
 namespace milstone1.logic_Layer
 {
+    [Serializable]
     public class User
     {
         private string NickName;
@@ -41,14 +42,21 @@ namespace milstone1.logic_Layer
             return null;
         }
 
-        public IMessage sendmessege(string body, string url)
+        public Message SendMessege(string body, string url)
         {
-            IMessage msg = Communication.Instance.Send(url, this.Group_Id, this.NickName, body);
-            saveMessage(msg);
 
+            if (body.Length > 150)
+                throw new Exception("message canot be longer than 150 letters");
+            else
+            {
+                IMessage msg = Communication.Instance.Send(url, this.Group_Id, this.NickName, body);
+                Message mess = new Message(msg);
+                saveMessage(mess);
+                
 
-            //Message m = new Message(this, msg.Id, msg.Date, msg.MessageContent);
-            return msg;
+                //Message m = new Message(this, msg.Id, msg.Date, msg.MessageContent);
+                return mess;
+            }
         }
 
         public void login()
@@ -60,9 +68,9 @@ namespace milstone1.logic_Layer
         {
 
         }
-        public void saveMessage(IMessage msg)
+        public void saveMessage(Message msg)
         {
-            IList<IMessage> msgToSave = new List<IMessage>();
+            IList<Message> msgToSave = new List<Message>();
             msgToSave.Add(msg);
             FilesHandler.SaveMessages(msgToSave);
 
